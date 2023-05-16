@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: GoldenRod;
+}
+
+/* General styles */
+body {
+  font-family: Noto, Arial, sans-serif;
+  font-size: 0.8em;
+  line-height: 1.5;
+  color: #333;
+}
+
+.element {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Form styles */
+form {
+  margin: auto;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-group {
+  width: calc(50% - 10px);
+  margin-bottom: 15px;
+}
+
+h1, h2, h5 {
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+h5 {
+  font-size: 1.0em;
+  text-align: right;
+}
+
+.focus-style:focus {
+  border: 2px solid #ddd;
+  border-radius: 2px;
+  padding: 2px;
+  font-size: 1.1em;
+  transition: border-color 0.2s ease-in-out;
+  outline: none;
+  border-color: #0077cc;
+}
+
+#password-strength-indicator {
+  width: 0%; /* Will be updated in JavaScript */
+  height: 10px;
+  background-color: red; /* Will be updated in JavaScript */
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+/* Surrounding container for the progress bar */
+#password-strength-container {
+  width: 100%;
+  height: 10px;
+  border: 1px solid #ddd;
+}
+
+#terms,
+#privacy {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+#terms + label,
+#privacy + label {
+  display: inline-block;
+  font-size: 0.9em;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+#terms:checked + label,
+#privacy:checked + label {
+  font-weight: bold;
+}
+
+input[type="checkbox"]:hover,
+input[type="checkbox"]:focus + label {
+  text-decoration: underline;
+}
+
+label {
+  display: block;
+  margin-bottom: -2px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+button[type="submit"],
+button[type="button"],
+.cancelbtn,
+.loginbtn {
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+input[type="password"]:hover,
+button[type="submit"]:hover,
+button[type="button"]:hover,
+.cancelbtn:hover,
+.loginbtn:hover {
+  transform: scale(1.05);
+}
+
+input[type="text"]:hover,
+input[type="date"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+input[type="password"]:hover {
+  border-color: var(--primary-color);
+}
+
+/* Accessibility */
+:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+/* Button styles */
+button[type="submit"],
+.cancelbtn,
+.loginbtn {
+  font-size: 1em;
+  padding: 12px 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+}
+
+button[type="submit"],
+.loginbtn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+button[type="submit"]:hover,
+button[type="button"]:hover,
+.cancelbtn:hover,
+.loginbtn:hover {
+  background-color: #e8bd01;
+}
+
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Footer Styles */
+footer {
+  background-color: AntiqueWhite;
+  color: Goldenrod;
+  padding: 20px;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+  color: Black;
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  footer a {
+    margin: 10px 0;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: Black;
+}
+
+/* Form Validation Styles */
+.error {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+.error-input {
+  border: 2px solid red;
+}
+
+.success {
+  color: green;
+}
+
+@media only screen and (max-width: 600px) {
+  body,
+  label,
+  .error {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h5 {
+    font-size: 1.5em;
+  }
+  .form-group {
+    width: 100%;
+  }
+}

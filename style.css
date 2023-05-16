@@ -1,0 +1,470 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1 {
+  font-family: "Noto";
+  color: goldenRod;
+  font-size: 48px;
+}
+
+h2 {
+  font-family: "Noto";
+  color: #444;
+  font-size: 46px;
+}
+h3 {
+  font-family: "Noto";
+  color: goldenRod;
+  font-size: 20px;
+}
+.price {
+  color: goldenrod;
+}
+.image-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.clothes-row {
+  display: flex;
+  justify-content: center;
+  gap: 350px;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+.item {
+  overflow: hidden;
+  position: relative;
+}
+.item-body {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: -100%;
+  position: absolute;
+  background: #1f3d4738;
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+  color: #fff;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 2s;
+}
+.item-title {
+  font-size: 50px;
+  font-weight: 500;
+}
+.item-desc {
+  font-size: 20px;
+  line-height: 25px;
+  margin: 40px 0;
+  font-weight: 400;
+}
+.item-price {
+  font-size: 40px;
+  line-height: 35px;
+  margin: 40px 0;
+  font-weight: 400;
+  color: goldenrod;
+}
+.item:hover .item-body {
+  right: 0;
+}
+
+.item img {
+  transition: 1s ease;
+}
+.item:hover img {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  transition: 1s ease;
+}
+
+#sm-banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-image: url("pictures/fashion3.jpg");
+  min-width: 580px;
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+}
+.column2 {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.row2::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/*Helps keep right on navigation tab */
+.navbar {
+  flex: 1;
+  margin-right: 10px;
+  margin-left: auto;
+  border-spacing: 15px 0px;
+}
+
+.column {
+  flex-basis: 50%;
+  min-width: 300px;
+}
+.column img {
+  max-width: 100%;
+  padding: 50px 100px; /*top bottom 50, left right 0*/
+}
+.column h1 {
+  font-size: 50px;
+  line-height: 60px;
+  margin: 25px;
+}
+.column p {
+  margin-left: 25px;
+}
+.column-2 {
+  flex-basis: 25%; /*each image column occupies 25% each*/
+  padding: 10px;
+  min-width: 200px;
+  margin-bottom: 50px;
+  transition: transform 0.5s; /*when apply hover effect it will move image with 5sec delay*/
+}
+.column-2 img {
+  width: 100%; /*each image occupies full column width*/
+}
+/* Controls section of rows*/
+.small-container {
+  max-width: 1080px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.col-2 {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+}
+/*single product details*/
+.single-product {
+  margin-top: 80px;
+}
+.single-product .column img {
+  padding: 0;
+}
+.single-product .column {
+  padding: 20px;
+  text-align: left;
+}
+
+.single-product select {
+  display: block;
+  padding: 10px;
+  margin-top: 20px;
+}
+.single-product h4 {
+  margin: 20px 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.single-product input {
+  width: 50px;
+  height: 40px;
+  font-size: 20px;
+  margin-right: 10px;
+  border: 1px solid #ff523b;
+}
+input:focus {
+  outline: none;
+}
+.single-product .fa {
+  color: #ff523b;
+  margin-left: 10px;
+}
+
+.single-product .column p {
+  margin-left: 0px;
+}
+.single-product .column h1 {
+  margin-left: 0px;
+}
+#MenswearPictures {
+  color: goldenrod;
+}
+a {
+  text-decoration: none;
+  color: Black;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #5c4033;
+}
+li {
+  float: right;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  flex-wrap: wrap;
+  padding: 12px 184px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: Goldenrod;
+}
+footer {
+  background-color: AntiqueWhite;
+  color: Goldenrod;
+  padding: 20px;
+  text-align: center;
+}
+footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+footer li {
+  display: inline-block;
+  margin: 0 10px;
+}
+footer li a {
+  color: #fff;
+  text-decoration: none;
+}
+footer li a:hover {
+  text-decoration: underline;
+}
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 24px;
+  }
+  p {
+    font-size: 16px;
+  }
+}
+.center-text {
+  text-align: center;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.dropdown select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  width: 150px;
+}
+
+.dropdown select:focus {
+  outline: none;
+}
+
+.dropdown::before {
+  content: "\25bc";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.dropdown select option {
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.dropdown select option:hover {
+  background-color: #f5f5f5;
+}
+.sliding-image {
+  transition: transform 0.3s ease;
+}
+
+.sliding-image:hover {
+  transform: translateX(-10px); /* Adjust the desired slide distance */
+}
+
+.image-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+  transition: clip-path 0.5s ease;
+}
+
+.image-container:hover img {
+  clip-path: none;
+}
+.banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-container .banner {
+  background: linear-gradient(
+    -55deg,
+    #ff7675 29%,
+    #d63031 29.1%,
+    #d63031 68%,
+    #ff7675 68.1%
+  );
+  border-radius: 5px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-shadow: 0 5px 10px #0005;
+  overflow: hidden;
+}
+
+.banner-container .banner .content {
+  flex: 1 1 250px;
+  text-align: center;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.banner-container .banner .content span {
+  color: #eee;
+  font-size: 25px;
+}
+
+.banner-container .banner .content h3 {
+  color: #fff;
+  font-size: 40px;
+}
+
+.banner-container .banner .content p {
+  color: #eee;
+  font-size: 20px;
+  padding: 10px 0;
+}
+
+.banner-container .banner .content .btn {
+  display: block;
+  height: 40px;
+  width: 150px;
+  line-height: 40px;
+  background: #fff;
+  color: #d63031;
+  margin: 5px auto;
+  text-decoration: none;
+}
+
+.banner-container .banner .prod {
+  position: relative;
+  bottom: -33px;
+  padding: 10px;
+  flex: 1 1 250px;
+}
+
+.banner-container .banner .prod img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .banner-container .banner .prod {
+    display: none;
+  }
+}
+
+#ChangeTheme:checked + span.slide:before {
+  transform: translatex(40px);
+}
+
+/* if dark-mode class is added set this background */
+body.dark-mode {
+  background: #353535;
+}
+
+.dark-mode .txt p:nth-child(1) {
+  color: #000;
+  font-weight: normal;
+}
+
+.dark-mode .txt p:nth-child(2) {
+  color: grey;
+  font-weight: bold;
+}
+
+body.dark-mode header,
+body.dark-mode main,
+body.dark-mode footer {
+  background: #616161 !important;
+}
+
+body.dark-mode a.btn {
+  background: #333 !important;
+  color: #999 !important;
+}
+
+body.dark-mode p {
+  color: gray !important;
+}

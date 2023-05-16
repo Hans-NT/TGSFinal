@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>Womenswear | TGS</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<script>
+   function filterProducts() {
+      var minPrice = document.getElementById("price_filter_min").value;
+      var maxPrice = document.getElementById("price_filter_max").value;
+
+      var products = document.querySelectorAll(".price");
+      for (var i = 0; i < products.length; i++) {
+         var price = parseFloat(products[i].innerHTML.replace("$", ""));
+         if (price >= minPrice && price <= maxPrice) {
+            products[i].parentNode.parentNode.style.display = "table-cell";
+         } else {
+            products[i].parentNode.parentNode.style.display = "none";
+         }
+      }
+   }
+</script>
+
+<body>
+   <font face="Noto" color="GoldenRod" size="5">
+      <h1>
+         <center>
+            TGS
+         </center>
+      </h1>
+      <font align="right" size="4">
+         <div>
+            <a href="index.html">HOME</a>
+            <a href="Search.html">SEARCH</a>
+            <a href="Login.html">LOGIN</a>
+            <a href="Shopping-bag.html">SHOPPING BAG</a>
+         </div>
+         <br>
+         <ul>
+            <li><a class="active" href="Sale.html">SALE</a></li>
+            <li><a href="New-Arrivals.html">NEW ARRIVALS</a></li>
+            <li><a href="Womenswear.html">WOMENSWEAR</a></li>
+            <li><a href="Menswear.html">MENSWEAR</a></li>
+         </ul>
+         <hr>
+         <font face="Noto" color="#444" size="8" align="center">
+            <h1>
+               <center>
+                  WOMENSWEAR
+                  <table width="100%" border="1">
+                  </table>
+               </center>
+         </font>
+
+         </h1>
+
+         <br><br>
+         <font color="GoldenRod">
+            <label for="price_filter">Filter by price:</label>
+            <input type="number" id="price_filter_min" placeholder="Minimum price">
+            <input type="number" id="price_filter_max" placeholder="Maximum price">
+            <button onclick="filterProducts()">Filter</button>
+         </font>
+         <div class="center-text">
+
+            <table id="WomenswearPictures" align="center" width="100%">
+
+               <div class="clothes-row">
+                  <div class="item">
+                     <a href="Paneled-Checked-Wool-blend-Sweater.html">
+                        <img src="pictures/13.jpg" height="640" width="480" alt="Paneled Checked Wool-blend Sweater" />
+                        <div class="item-body">
+                           <h1 class="item-title"> Paneled-Checked Wool Blend Sweater </h1>
+                           <p class="item-desc"> You ever want to feel like a kindergarten rug? This is the way to go.
+                           </p>
+                           <p class="item-price">$45.00</p>
+                        </div>
+                        <h3><a href="Paneled-Checked-Wool-blend-Sweater.html">Paneled Checked Wool-blend Sweater
+                           </a></h3>
+                        <p class="price" id="product13_price"> $45.00</p>
+                     </a>
+                  </div>
+                  <div class="item">
+                     <a href="Diamond-Design-Fluffy-Jumper.html">
+                        <img src="pictures/14.jpg" height="640" width="480" alt="Diamond Design Fluffy Jumper" />
+                        <div class="item-body">
+                           <h1 class="item-title"> Diamond Design Fluffy Jumper </h1>
+                           <p class="item-desc"> No this does not itch like the sweater your grandma made you as a kid,
+                              but I can assure you that
+                              eyes will always be on you. </p>
+                           <p class="item-price">$85.00</p>
+                        </div>
+                        <h3><a href="Diamond-Design-Fluffy-Jumper.html">Diamond Design Fluffy Jumper </a></h3>
+                        <p class="price" id="product14_price"> $85.00</p>
+                     </a>
+                  </div>
+                  <div class="item">
+                     <a href="Wavy-Striped-Pattern-Sleeve-Jumper.html">
+                        <img src="pictures/15.jpg" height="640" width="480" alt="Wavy Striped Pattern Sleeve Jumper" />
+                        <div class="item-body">
+                           <h1 class="item-title"> Wavy Striped Pattern Sleeve Jumper </h1>
+                           <p class="item-desc"> Ever dreamed of wanting to be a Swiffer but the entire Swiffer is
+                              covered in the wipes? Say no more! </p>
+                           <p class="item-price">$45.00</p>
+                        </div>
+                        <h3><a href="Wavy-Striped-Pattern-Sleeve-Jumper.html">Wavy Striped Pattern Sleeve Jumper
+                           </a></h3>
+                        <p class="price" id="product15_price"> $45.00</p>
+                     </a>
+                  </div>
+               </div>
+
+               <div class="clothes-row">
+                  <div class="item">
+                     <a href="Topshop-Chunky-Rib-Beanie.html">
+                        <img src="pictures/16.jpg" height="740" width="480" alt="Topshop Chunky Rib Beanie" />
+                        <div class="item-body">
+                           <h1 class="item-title"> Topshop Chunky Rib Beanie </h1>
+                           <p class="item-desc"> Cool your head off in any heated moment with this beanie. </p>
+                           <p class="item-price">$50.00 <s>$60.00</s></p>
+                           <font color="red">
+                              <p> 20% Off</p>
+                           </font>
+                        </div>
+                        <h3><a href="Topshop-Chunky-Rib-Beanie.html">Topshop Chunky Rib Beanie </a></h3>
+                        <p class="price" id="product16_price">$50 <s>$60.00</s></p>
+                        <font color="red">
+                           <p> 20% Off</p>
+                        </font>
+                     </a>
+                  </div>
+
+                  <div class="item">
+                     <a href="LA-Hearts-Womens-90s-Girl-V-Neck-Sweater.html">
+                        <img src="pictures/17.jpg" height="740" width="480"
+                           alt="LA Hearts Womens '90s Girl V Neck Sweater" />
+                        <div class="item-body">
+                           <h1 class="item-title"> LA Hearts Womens '90s Girl V Neck Sweater </h1>
+                           <p class="item-desc"> Don't go chasing waterfalls. Just don't. </p>
+                           <p class="item-price">$55.00</p>
+                        </div>
+                        <h3><a href="LA-Hearts-Womens-90s-Girl-V-Neck-Sweater.html">LA Hearts Womens '90s Girl V Neck
+                              Sweater</a></h3>
+                        <p class="price" id="product17_price"> $55.00</p>
+                     </a>
+                  </div>
+
+                  <div class="item">
+                     <a href="Marni-Long-Sleeved-Cardigan.html">
+                        <img src="pictures/18.jpg" height="740" width="480" alt="Marni Long-Sleeved Cardigan" />
+                        <div class="item-body">
+                           <h1 class="item-title"> Marni Long-Sleeved Cardigan </h1>
+                           <p class="item-desc"> I feel like a grandma wearing this but your pockets be feeling like
+                              one. </p>
+                           <p class="item-price">$55.00</p>
+                        </div>
+                        <h3><a href="Marni-Long-Sleeved-Cardigan.html">Marni Long-Sleeved Cardigan</a></h3>
+                        <p class="price" id="product18_price">$60.00</p>
+                     </a>
+                  </div>
+               </div>
+
+               <div class="clothes-row">
+                  <div class="item">
+                     <a href="High-Waisted-Loose-Wide-Leg-Sweatpants.html">
+                        <img src="pictures/19.jpg" height="640" width="480"
+                           alt="High Waisted Loose Wide Leg Sweatpants" />
+                        <div class="item-body">
+                           <h1 class="item-title"> High Waisted Loose Wide Leg Sweatpants </h1>
+                           <p class="item-desc"> Make strides through the sky as you flow in the air.. </p>
+                           <p class="item-price"> $45.00</p>
+                        </div>
+                        <h3><a href="High-Waisted-Loose-Wide-Leg-Sweatpants.html">High Waisted Loose Wide Leg
+                              Sweatpants</a></h3>
+                        <p class="price" id="product19_price"> $45.00</p>
+                     </a>
+                  </div>
+                  <div class="item">
+                     <a href="Streetwear-Lining-Baggy-Army-Green-Cargo-Pants.html">
+                        <img src="pictures/20.jpg" height="640" width="480"
+                           alt="Streetwear Lining Baggy Army Green Cargo Pants" />
+                        <div class="item-body">
+                           <h1 class="item-title"> Streetwear Lining Baggy Army Green Cargo Pants </h1>
+                           <p class="item-desc"> Pockets and pockets and pockets and much much more pockets. </p>
+                           <p class="item-price"> $55.00 <s>$80.00</s></p>
+                           <font color="red">
+                              <p> 35% Off</p>
+                           </font>
+                        </div>
+                        <h3><a href="Streetwear-Lining-Baggy-Army-Green-Cargo-Pants.html">Streetwear Lining Baggy Army
+                              Green Cargo Pants</a></h3>
+                        <p class="price" id="product20_price"> $55.00 <s>$80.00</s></p>
+                        <font color="red">
+                           <p> 35% Off</p>
+                        </font>
+                     </a>
+                  </div>
+                  <div class="item">
+                     <a href="Mustard-Painters-Pants.html">
+                        <img src="pictures/21.jpg" height="640" width="480" alt="Painter's Pants in Mustard" />
+                        <div class="item-body">
+                           <h1 class="item-title"> Mustard Painter's Pants </h1>
+                           <p class="item-desc"> Did you spill mustard on yourself? Or has it been there the whole time?
+                              Only time will tell. </p>
+                           <p class="item-price"> $65.00</p>
+                        </div>
+                        <h3><a href="Mustard-Painters-Pants.html">Mustard Painter's Pants</a></h3>
+                        <p class="price" id="product21_price"> $65.00</p>
+                     </a>
+                  </div>
+               </div>
+
+               <div class="clothes-row">
+                  <div class="item">
+                     <a href="End-Zone-Pants.html">
+                        <img src="pictures/22.jpg" height="640" width="480" alt="End Zone Pants" />
+                        <div class="item-body">
+                           <h1 class="item-title"> End Zone Pants </h1>
+                           <p class="item-desc"> Ever feeling like you need enough drip to run on the treadmill? Say no
+                              more with these wonderful End Zone Pants. </p>
+                           <p class="item-price"> $60.00</p>
+                        </div>
+                        <h3><a href="End-Zone-Pants.html">End Zone Pants</a></h3>
+                        <p class="price" id="product22_price"> $60.00</p>
+                     </a>
+                  </div>
+                  <div class="item">
+                     <a href="Wales-Bonner-Percussion-Track-Pants.html">
+                        <img src="pictures/23.jpg" height="640" width="480" alt="Wales Bonner Percussion Track Pants" />
+                        <div class="item-body">
+                           <h1 class="item-title"> Wales Bonner Percussion Track Pants </h1>
+                           <p class="item-desc"> Be flexible and be comfortable. This is very flexible material enough
+                              for your martial arts needs. </p>
+                           <p class="item-price"> $50.00</p>
+                        </div>
+                        <h3><a href="Wales-Bonner-Percussion-Track-Pants.html">Wales Bonner Percussion Track Pants</a>
+                        </h3>
+                        <p class="price" id="product23_price"> $50.00</p>
+                     </a>
+                  </div>
+                  <div class="item">
+                     <a href="Tassel-Tie-Front-Layered-Hem-Skirt.html">
+                        <img src="pictures/24.jpg" height="640" width="480" alt="Tassel Tie Front Layered Hem Skirt" />
+                        <div class="item-body">
+                           <h1 class="item-title"> Tassel Tie Front Layered Hem Skirt </h1>
+                           <p class="item-desc"> Feel and be an unstoppable force of beauty or feeling like a pirate.
+                           </p>
+                           <p class="item-price"> $65.00</p>
+                        </div>
+                        <h3><a href="Tassel-Tie-Front-Layered-Hem-Skirt.html">Tassel Tie Front Layered Hem Skirt</a>
+                        </h3>
+                        <p class="price" id="product24_price"> $65.00</p>
+                     </a>
+                  </div>
+               </div>
+
+            </table>
+         </div>
+         <hr>
+      </font>
+      <!-- This is the Footer -->
+      <footer>
+         <a href="index.html">Home</a>
+         <a href="Login.html">Login</a>
+         <a href="Search.html">Search</a>
+         <a href="Campaign.html">Campaign</a>
+         <a href="Menswear.html">Menswear</a>
+         <a href="Womenswear.html">Womenswear</a>
+         <a href="New-Arrivals.html">New Arrivals</a>
+         <a href="Sale.html">Sale</a>
+         <a href="Aboutus.html">About Us</a>
+         <a href="Faq.html">FAQ</a>
+         <a href="Contact.html">Contact Us</a>
+         <a href="Systempreference.html">System Preferences</a>
+         <font align="center">
+            <br>
+            <p>© TGS 2023</p>
+      </footer>
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>SEARCH|TGS</title>
+</head>
+<style>
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5C4033;
+  }
+
+  li {
+    float: right;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 168px;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color: Goldenrod;
+  }
+
+  footer {
+    background-color: AntiqueWhite;
+    color: Goldenrod;
+    padding: 20px;
+    text-align: center;
+  }
+
+  footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  footer li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  footer li a {
+    color: #F8F8FF;
+    text-decoration: none;
+  }
+
+  footer li a:hover {
+    text-decoration: underline;
+  }
+
+  div {
+    width: 330px;
+    padding: 10px;
+    border: 5px solid brown;
+    margin: 0;
+  }
+
+  .search-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  #search-input {
+    padding: 5px;
+    width: 200px;
+  }
+
+  #search-button {
+    padding: 5px 10px;
+  }
+
+  #results-container {
+    margin-top: 20px;
+    text-align: center;
+  }
+</style>
+
+<body>
+  <font face="Noto" color="GoldenRod" size="5">
+    <center>
+      <h1>TGS</h1>
+    </center>
+    <align=right>
+      <nav>
+        <a href="index.html">HOME</a>
+        <a href="Search.html">SEARCH</a>
+        <a href="Login.html">LOGIN</a>
+        <a href="Shopping-bag.html">SHOPPING BAG</a>
+      </nav>
+      <br>
+      <ul>
+        <li><a class="active" href="Sale.html">SALE</a></li>
+        <li><a href="New-Arrivals.html">NEW ARRIVALS</a></li>
+        <li><a href="Womenswear.html">WOMENSWEAR</a></li>
+        <li><a href="Menswear.html">MENSWEAR</a></li>
+      </ul>
+      <center>
+        <h2>
+          <FONT COLOR=#444>SEARCH
+        </h2>
+        <div class="search-container">
+          <input type="text" id="search-input" placeholder="Search...">
+          <button id="search-button">Go</button>
+        </div>
+        <div id="results-container"></div>
+      </center>
+      <hr>
+      <font align="left">
+        <footer>
+          <a href="index.html">Home</a>
+          <a href="Login.html">Login</a>
+          <a href="Search.html">Search</a>
+          <a href="Campaign.html">Campaign</a>
+          <a href="Menswear.html">Menswear</a>
+          <a href="Womenswear.html">Womenswear</a>
+          <a href="New-Arrivals.html">New Arrivals</a>
+          <a href="Sale.html">Sale</a>
+          <a href="Aboutus.html">About Us</a>
+          <a href="Faq.html">FAQ</a>
+          <a href="Contact.html">Contact Us</a>
+          <a href="Systempreference.html">System Preferences</a>
+          <font align="center">
+            <br>
+            <p>© TGS 2023</p>
+        </footer>
+        <script>
+          const searchInput = document.getElementById('search-input');
+          const searchButton = document.getElementById('search-button');
+          const resultsContainer = document.getElementById('results-container');
+          // Function to handle search and display results
+          function performSearch() {
+            // Clear previous results
+            resultsContainer.innerHTML = '';
+            // Get the search query
+            const query = searchInput.value.trim();
+            if (query !== '') {
+              // Perform the search within your website
+              const searchResults = searchWithinWebsite(query);
+              // Display the search results
+              if (searchResults.length > 0) {
+                searchResults.forEach((result) => {
+                  const link = document.createElement('a');
+                  link.href = result.url;
+                  link.textContent = result.title;
+                  // Append link to results container
+                  resultsContainer.appendChild(link);
+                  resultsContainer.appendChild(document.createElement('br'));
+                });
+              } else {
+                resultsContainer.textContent = 'No results found.';
+              }
+            }
+          }
+          // Function to perform search within your website (replace with your own implementation)
+          function searchWithinWebsite(query) {
+            const Products = [{
+                url: 'Baggy-Button-up.html',
+                title: 'Baggy Button Up'
+              },
+              {
+                url: 'Beige-Fur-Coat.html',
+                title: 'Beige Fur Coat'
+              },
+              {
+                url: 'Beige-Half-Zip-Sweater.html',
+                title: 'Beige Half Zip Sweater'
+              },
+              {
+                url: 'Cactus-Jack-Long-Sleeve.html',
+                title: 'Cactus Jack Long Sleeve'
+              },
+              {
+                url: 'Diamond-Design-Fluffy-Jumper.html',
+                title: 'Diamond Design Fluffy jumper'
+              },
+              {
+                url: 'Emerald-Fur-Coat.html',
+                title: 'Emerald Fur Coat'
+              },
+              {
+                url: 'End-Zone-Pants.html',
+                title: 'End Zone Pants'
+              },
+              {
+                url: 'Heaven-Hoodie.html',
+                title: 'Heaven Hoodie'
+              },
+              {
+                url: 'High-Waisted-Loose-Wide-Leg-Sweatpants.html',
+                title: 'High Waisted Loose Wide Leg Sweater '
+              }, {
+                url: 'Khaki-Hoodie.html',
+                title: 'Khaki hoodie'
+              },
+            ];
+            return Products;
+          }
+          // Add event listener to search button
+          searchButton.addEventListener('click', performSearch);
+          // Add event listener to search input for pressing enter key
+          searchInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+              performSearch();
+            }
+          });
+        </script>
+</body>
+
+</html>

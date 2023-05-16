@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>System Preferences|TGS</title>
+</head>
+<style>
+  a {
+    text-decoration: none;
+    color: #444;
+  }
+
+  /* The code for the nav bar on top*/
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5C4033;
+  }
+
+  li {
+    float: right;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 186px;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color: Goldenrod;
+  }
+
+  /*The code for the footer*/
+  footer {
+    background-color: AntiqueWhite;
+    color: Goldenrod;
+    padding: 20px;
+    text-align: center;
+  }
+
+  footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  footer li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  footer li a {
+    color: black;
+    text-decoration: none;
+  }
+
+  footer li a:hover {
+    text-decoration: underline;
+  }
+
+  .flex-container {
+    display: flex;
+    background-color: maroon;
+  }
+
+  .flex-container>div {
+    background-color: SaddleBrown;
+    color: tan;
+    margin: 10px;
+    padding: 15px;
+    font-size: 30px;
+  }
+
+  body {
+    font-family: sans-serif;
+    margin: 0;
+  }
+
+  #ChangeTheme {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  label {
+    display: block;
+    height: 15px;
+    width: 60px;
+    position: relative;
+    margin: 0px auto;
+  }
+
+  span.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #dadada;
+    border-radius: 30px;
+  }
+
+  span.slide:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    background: #fff;
+    border-radius: 50%;
+    top: -2px;
+    left: 0px;
+    transition: 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.21) 0px 0px 7px 1px;
+  }
+
+  .txt {
+    position: relative;
+  }
+
+  .txt p:nth-child(1) {
+    color: grey;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: 0.5s;
+  }
+
+  #ChangeTheme:checked+span.slide:before {
+    transform: translatex(40px);
+  }
+
+  /* if dark-mode class is added set this background */
+  body.dark-mode {
+    background: #353535;
+  }
+
+  .dark-mode .txt p:nth-child(1) {
+    color: #000;
+    font-weight: normal;
+  }
+
+  .dark-mode .txt p:nth-child(2) {
+    color: grey;
+    font-weight: bold;
+  }
+
+  body.dark-mode header,
+  body.dark-mode main,
+  body.dark-mode footer {
+    background: #616161 !important;
+  }
+
+  body.dark-mode a.btn {
+    background: #333 !important;
+    color: #999 !important;
+  }
+
+  body.dark-mode p {
+    color: gray !important;
+  }
+</style>
+
+<body>
+  <font face="Noto" color="GoldenRod" size="5">
+    <center>
+      <h1>TGS</h1>
+    </center>
+    <font align="right" size="4">
+      <div>
+        <div>
+          <a href="index.html">HOME</a>
+          <a href="Search.html">SEARCH</a>
+          <a href="Login.html">LOGIN</a>
+          <a href="Shopping-bag.html">SHOPPING BAG</a>
+        </div>
+        <br>
+        <ul>
+          <li><a class="active" href="Sale.html">SALE</a></li>
+          <li><a href="New-Arrivals.html">NEW ARRIVALS</a></li>
+          <li><a href="Womenswear.html">WOMENSWEAR</a></li>
+          <li><a href="Menswear.html">MENSWEAR</a></li>
+        </ul>
+        <center>
+          <h2>
+            <FONT COLOR=#444>System Preferences
+          </h2>
+        </center>
+        <font face="Noto" align="center">
+          <div class="flex-container">
+            <div>
+              <h3>Toggle Dark/Light Mode</h3>
+              <p>Click the button below to toggle between dark or light mode.</p>
+              <label for="ChangeTheme">
+                <input type="checkbox" id="ChangeTheme" /> <span class="slide"></span>
+              </label>
+            </div>
+            <div>
+              <h3>Change your password here</h3>
+              <p>Click below in order to change your old password.</p>
+              <button onclick="myFunction2()">Change password</button>
+            </div>
+            <div>
+              <h3>Change your E-mail here</h3>
+              <p>Click below in order to update to a new E-mail.</p>
+              <button onclick="myFunction3()">Update E-mail</button>
+            </div>
+          </div>
+          <hr>
+          <footer>
+            <a href="index.html">Home</a>
+            <a href="Login.html">Login</a>
+            <a href="Search.html">Search</a>
+            <a href="Campaign.html">Campaign</a>
+            <a href="Menswear.html">Menswear</a>
+            <a href="Womenswear.html">Womenswear</a>
+            <a href="New-Arrivals.html">New Arrivals</a>
+            <a href="Sale.html">Sale</a>
+            <a href="Aboutus.html">About Us</a>
+            <a href="Faq.html">FAQ</a>
+            <a href="Contact.html">Contact Us</a>
+            <a href="Systempreference.html">System Preferences</a>
+            <font align="center">
+              <br>
+              <p>© TGS 2023</p>
+          </footer>
+          <script>
+            var checkbox = document.getElementById("ChangeTheme"); //get the checkbox to a variable
+            //check storage if dark mode was on or off
+            if (sessionStorage.getItem("mode") == "dark") {
+              darkmode(); //if dark mode was on, run this funtion
+            } else {
+              nodark(); //else run this funtion
+            }
+            //if the checkbox state is changed, run a funtion
+            checkbox.addEventListener("change", function () {
+              //check if the checkbox is checked or not
+              if (checkbox.checked) {
+                darkmode(); //if the checkbox is checked, run this funtion
+              } else {
+                nodark(); //else run this funtion
+              }
+            });
+            //function for checkbox when checkbox is checked
+            function darkmode() {
+              document.body.classList.add("dark-mode"); //add a class to the body tag
+              checkbox.checked = true; //set checkbox to be checked state
+              sessionStorage.setItem("mode", "dark"); //store a name & value to know that dark mode is on
+            }
+            //function for checkbox when checkbox is not checked
+            function nodark() {
+              document.body.classList.remove("dark-mode"); //remove added class from body tag
+              checkbox.checked = false; //set checkbox to be unchecked state
+              sessionStorage.setItem("mode",
+                "light"); //store a name & value to know that dark mode is off or light mode is on
+            }
+
+            function myFunction2() {
+              window.location.href = "resetpassword.html";
+            }
+
+            function myFunction3() {
+              window.location.href = "Register.html";
+            }
+          </script>
+</body>
+
+</html>

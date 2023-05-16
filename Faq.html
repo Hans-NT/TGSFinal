@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>FAQ</title>
+      <style>
+         body {
+         font-family: Noto;
+         color: black;
+         background-color: white;
+         }
+         h1 {
+         font-size: 3em;
+         text-align: center;
+         color: GoldenRod;
+         -webkit-text-stroke: 1px #000000;
+         text-stroke: 0px black;
+         animation: bounce 2s infinite;
+         animation-play-state: running;
+         cursor: pointer;
+         }
+         h1:hover {
+         animation-play-state: paused;
+         }
+         @keyframes bounce {
+         0%, 20%, 50%, 80%, 100% {
+         transform: translateY(0);
+         }
+         40% {
+         transform: translateY(-2px);
+         }
+         60% {
+         transform: translateY(-2px);
+         }
+         }
+         h2 {
+         font-size: 1.5em;
+         }
+         dialog {
+         border: none;
+         padding: 0;
+         margin: 0;
+         }
+         summary {
+         font-size: 1.8em;
+         font-weight: bold;
+         margin-bottom: 0.6em;
+         cursor: pointer;
+         }
+         details {
+         margin-bottom: 6em;
+         }
+         @keyframes shake {
+         2%, 4% {
+         transform: translate3d(-1px, 0, 0);
+         }
+         3%, 5% {
+         transform: translate3d(2px, 0, 0);
+         }
+         2%, 3%, 4% {
+         transform: translate3d(-4px, 0, 0);
+         }
+         2%, 3% {
+         transform: translate3d(4px, 0, 0);
+         }
+         }
+         p {
+         animation: shake 40s;
+         animation-iteration-count: infinite;
+         display: inline-block;
+         padding: 7px;
+         font-size: 2em;
+         -webkit-text-stroke: 0.7px black;
+         text-stroke: 0px black;
+         background-clip: text;
+         -webkit-background-clip: text;
+         color: GoldenRod;
+         border: 2.2px solid GoldenRod;
+         box-shadow: 0px 0px 5px GoldenRod;
+         }
+         a{
+    text-decoration: none;
+    color: Black;
+    }
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #5C4033;
+    }
+    li {
+    float: right;
+    }
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 12px 164px;
+    text-decoration: none;
+    }
+    li a:hover {
+    background-color: Goldenrod;
+    }
+    footer {
+    background-color: white;
+    color: Goldenrod;
+    padding: 20px;
+    text-align: center;
+    }
+    footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    }
+    footer li {
+    display: inline-block;
+    margin: 0 10px;
+    }
+    footer li a {
+    color: #fff;
+    text-decoration: none;
+    }
+    footer li a:hover {
+    text-decoration: underline;
+    }
+    .container {
+    position: relative;
+    text-align: center;
+    color: white;
+    }
+    .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+      </style>
+   </head>
+   <body>
+      <h1>TGS</h1>
+      <hr>
+      <h1>Frequently Asked Questions</h1>
+      <details open>
+         <summary>What payment methods do you accept?</summary>
+         <p>We accept all credit cards, Paypal, and Apple Pay.</p>
+      </details>
+      <br>
+      <details>
+         <summary>What is your return policy?</summary>
+         <p>We love money so we are very hesitant to allow returns, however if you contact us within
+            30 days you are elegible for a return as long as the item is in the original condition.
+         </p>
+      </details>
+      <br>
+      <details>
+         <summary>Do you offer international shipping?</summary>
+         <p>We offer domestic, international, and even intergalactic shipping.</p>
+      </details>
+      <br>
+      <details>
+         <summary>How do I know what size to order?</summary>
+         <p>We provide a size chart on each product page to help you find your best fit.</p>
+      </details>
+      <br>
+      <details>
+         <summary>Can I cancel or modify my order after it has been placed?</summary>
+         <p>We'll think about it.</p>
+      </details>
+      <br>
+      <details>
+      <summary>How long will it take to receive my order?</summary>
+      <p>Orders typically ship within 1-2 business days. Shipping times vary based on your
+         location and shipping method selected at checkout.
+      </p>
+      </details>
+      <footer>
+         <a href="index.html">Home</a>
+         <a href="Login.html">Login</a>
+         <a href="Search.html">Search</a>
+         <a href="Campaign.html">Campaign</a>
+         <a href="Menswear.html">Menswear</a>
+         <a href="Womenswear.html">Womenswear</a>
+         <a href="New-Arrivals.html">New Arrivals</a>
+         <a href="Sale.html">Sale</a>
+         <a href="Aboutus.html">About Us</a>
+         <a href="Faq.html">FAQ</a>
+         <a href="Contact.html">Contact Us</a>
+         <a href="Systempreference.html">System Preferences</a>
+         <font align="center">
+         <br><p>© TGS 2023</p>
+      </footer>
+   </body>
+</html>

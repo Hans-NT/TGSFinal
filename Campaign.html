@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang ="en-US">
+<html>
+<head>
+ <meta charset="utf-8"/>
+  <title>Campaign|TGS</title>
+</head>
+<style>
+a{
+  text-decoration: none;
+  color: Black;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #5C4033;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 184px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: Goldenrod;
+}
+
+footer {
+        background-color: AntiqueWhite;
+        color: Goldenrod;
+padding: 20px;
+        text-align: center;
+}
+
+footer ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+}
+
+footer li {
+        display: inline-block;
+        margin: 0 10px;
+}
+
+footer li a {
+        color: #fff;
+        text-decoration: none;
+}
+
+footer li a:hover {
+        text-decoration: underline;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+</style>
+<body>
+  <font face="Noto" color="GoldenRod" size="5">
+  <center>
+<h1>TGS</h1>
+
+</center>
+
+  <font align="right" size="4"><div>
+   <div>
+      <a href="index.html">HOME</a>
+      <a href="Search.html">SEARCH</a>
+      <a href="Login.html">LOGIN</a>
+      <a href="Shopping-bag.html">SHOPPING BAG</a>
+   </div>
+   <br>
+   <ul>
+      <li><a class="active" href="Sale.html">SALE</a></li>
+      <li><a href="New-Arrivals.html">NEW ARRIVALS</a></li>
+      <li><a href="Womenswear.html">WOMENSWEAR</a></li>
+      <li><a href="Menswear.html">MENSWEAR</a></li>
+   </ul>
+
+ <center>
+<h2><FONT COLOR=#444>Campaign</h2>
+ </center> 
+
+   <div class="container">
+  <div><img class="myImg" src="https://dl.dropboxusercontent.com/s/b2sfelb20up2w6t/menswearCampaign.jpg?dl=0" hieght="400" width="500" alt="Menswear Campaign"></div>
+     <div class="centered">Menswear SS23</div>
+     </div>
+
+   <div class="container">
+  <div><img class="myImg" src="https://dl.dropboxusercontent.com/s/yzn1mex56r91oxo/newArrivalsCampaign.jpg?dl=0" hieght="400" width="500" alt="New Arrivals"></div>
+   <div class="centered">New Collection</div>
+     </div>
+   
+   <div class="container">
+  <div><img class="myImg" src="https://dl.dropboxusercontent.com/s/4nkblyd9l7hq6ys/womenswearCampaign.jpg?dl=0" hieght="400" width="500" alt="Womenswear Campaign"></div>
+   <div class="centered">Womenswear SS23</div>
+  </div>
+   
+   <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+ </center>
+<hr>
+<footer>
+   <a href="index.html">Home</a>
+   <a href="Login.html">Login</a>
+   <a href="Search.html">Search</a>
+   <a href="Campaign.html">Campaign</a>
+   <a href="Menswear.html">Menswear</a>
+   <a href="Womenswear.html">Womenswear</a>
+   <a href="New-Arrivals.html">New Arrivals</a>
+   <a href="Sale.html">Sale</a>
+   <a href="Aboutus.html">About Us</a>
+   <a href="Faq.html">FAQ</a>
+   <a href="Contact.html">Contact Us</a>
+   <a href="Systempreference.html">System Preferences</a>
+   <font align="center">
+   <br><p>© TGS 2023</p>
+</footer>
+
+<script>
+var modal = document.getElementById("myModal");
+
+var img = document.getElementsByClassName('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+
+var showModal = function() {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+for (var i = 0; i < img.length; i++) {
+    img[i].addEventListener('click', showModal);
+}
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+
+</body>
+</html>
