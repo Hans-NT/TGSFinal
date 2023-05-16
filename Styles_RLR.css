@@ -1,0 +1,698 @@
+/* Define color variables for easy management and consistency */
+:root {
+  --primary-color: GoldenRod;
+  --text-color: black;
+  --background-color: AntiqueWhite;
+  --form-color: White;
+}
+
+/* Reset margin, padding and box-sizing for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set basic styles for body */
+body {
+  font-family: Noto, Arial, sans-serif;
+  font-size: 0.8em;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--form-color);
+}
+
+/* Define heading styles */
+h1, h2, h5 {
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h5 {
+  font-size: 1.0em;
+  text-align: right;
+}
+
+/* Paragraph styling */
+p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Define maximum width of elements */
+.element {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Style table headers */
+table th {
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* Form styling */
+form {
+  background-color: var(--form-color);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* Create a row layout for form fields */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Group form elements and define width */
+.form-group {
+  width: calc(50% - 10px);
+  margin-bottom: 15px;
+}
+
+/* Label styling */
+label {
+  display: block;
+  margin-bottom: -2px;
+  font-weight: bold;
+}
+
+/* Input and button styling */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+button[type="submit"],
+button[type="button"],
+.cancelbtn,
+.loginbtn {
+  transition: all 0.3s ease;
+}
+
+/* Input and button hover effects */
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="tel"]:hover,
+input[type="password"]:hover,
+button[type="submit"]:hover,
+button[type="button"]:hover,
+.cancelbtn:hover,
+.loginbtn:hover {
+  transform: scale(1.05);
+}
+
+/* Set the focus styles for all inputs, buttons and custom buttons */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+button[type="submit"]:focus,
+button[type="button"]:focus,
+.cancelbtn:focus,
+.loginbtn:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+/* Set the styles for elements with .focus-style class on focus */
+.focus-style:focus {
+  border: 2px solid #ddd;
+  border-radius: 2px;
+  padding: 2px;
+  font-size: 1.1em;
+  transition: border-color 0.2s ease-in-out;
+  outline: none;
+  border-color: #0077cc;
+}
+
+/* Set the initial styles for the password strength indicator */
+#password-strength-indicator {
+  width: 0%; /* Will be updated in JavaScript */
+  height: 10px;
+  background-color: red; /* Will be updated in JavaScript */
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+/* Set the styles for the password strength container */
+#password-strength-container {
+  width: 100%;
+  height: 10px;
+  border: 1px solid #ddd;
+}
+
+/* Set the focus styles for accessibility */
+:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+/* Align the terms and privacy checkboxes and labels */
+#terms,
+#privacy {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+#terms + label,
+#privacy + label {
+  display: inline-block;
+  font-size: 0.9em;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Bold the label when checkbox is checked */
+#terms:checked + label,
+#privacy:checked + label {
+  font-weight: bold;
+}
+
+/* Underline the checkbox label when checkbox is hovered or focused */
+input[type="checkbox"]:hover,
+input[type="checkbox"]:focus + label {
+  text-decoration: underline;
+}
+
+/* Set the styles for the submit button, cancel button and login button */
+button[type="submit"],
+.cancelbtn,
+.loginbtn {
+  font-size: 1em;
+  padding: 12px 18px;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+}
+
+/* Set the styles for the submit button and login button */
+button[type="submit"],
+.loginbtn {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Set the hover styles for the submit button, cancel button and login button */
+button[type="submit"]:hover,
+button[type="button"]:hover,
+.cancelbtn:hover,
+.loginbtn:hover {
+  background-color: #e8bd01;
+}
+
+/* Set the styles for the cancel button */
+.cancelbtn {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Hide the phone login section initially */
+#phoneLoginSection {
+  display: none;
+}
+
+/* Class to hide elements */
+.hidden {
+  display: none;
+}
+
+/* Define the styles for the payment method section */
+section {
+  margin-bottom: 1.5rem;
+}
+
+/* Define the styles for select elements */
+select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Define the styles for error messages */
+.error {
+  color: red;
+}
+
+/* Define the styles for the payment info section */
+#payment-info {
+  margin-top: 1.5rem;
+}
+
+/* Define the styles for the payment info labels */
+.payment-label {
+  font-weight: bold;
+}
+
+/* Define the styles for the payment info details */
+.payment-info {
+  margin-bottom: 1rem;
+}
+
+/* Define the styles for the input elements in the payment info section */
+.payment-info input[type="text"],
+.payment-info input[type="email"],
+.payment-info input[type="tel"],
+.payment-info select {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+/* Define the styles for the checkbox in the payment info section */
+.payment-info input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+/* Define the styles for the labels in the payment info section */
+.payment-info label {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Remove the right margin for the last label in the payment info section */
+.payment-info label:last-child {
+  margin-right: 0;
+}
+
+/* Define the styles for the button in the payment info section */
+.payment-info button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Define the hover styles for the button in the payment info section */
+.payment-info button:hover {
+  background-color: #0069d9;
+}
+
+/* Define the styles for the credit card payment form. Using CSS grid for layout. */
+#credit-card-payment form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  grid-column-gap: 1em;
+  grid-row-gap: 0.5em;
+}
+
+/* Define the styles for the label elements in the credit card payment form */
+#credit-card-payment label {
+  font-weight: bold;
+}
+
+/* Define the styles for the input and select elements in the credit card payment form */
+#credit-card-payment input,
+#credit-card-payment select {
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Define the styles for the submit button in the credit card payment form */
+#credit-card-payment input[type="submit"] {
+  padding: 0.5em 1em;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Define the hover styles for the submit button in the credit card payment form */
+#credit-card-payment input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+/* Styles for the PayPal payment section, which is initially hidden */
+#paypal-payment {
+  display: none;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+/* Styles for the h2 element within the PayPal payment section */
+#paypal-payment h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Margin styles for the form within the PayPal payment section */
+#paypal-payment form {
+  margin-top: 20px;
+}
+
+/* Styles for the submit button within the PayPal payment section */
+#paypal-payment button[type="submit"] {
+  background-color: #0070ba;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover styles for the submit button within the PayPal payment section */
+#paypal-payment button[type="submit"]:hover {
+  background-color: #005ea1;
+}
+
+/* Styles for the Venmo payment section */
+#venmo-payment {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+/* Styles for the h2 element within the Venmo payment section */
+#venmo-payment h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Styles for the p and ol elements within the Venmo payment section */
+#venmo-payment p, #venmo-payment ol {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Styles for the li elements within the Venmo payment section */
+#venmo-payment li {
+  margin-bottom: 10px;
+}
+
+/* Styles for the img element within the Venmo payment section */
+#venmo-payment img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Styles for the Cash App payment section */
+#cash-app-payment {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Styles for the h2 element and the ol within the Cash App payment section */
+#cash-app-payment h2, #cash-app-payment ol {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Styles for the li elements within the Cash App payment section */
+#cash-app-payment ol li {
+  margin-bottom: 10px;
+}
+
+/* Styles for the last p element within the Cash App payment section */
+#cash-app-payment p:last-child {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Styles for the Apple Pay payment section */
+#apple-pay-payment {
+  display: none;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+/* Styles for the h2 element within the Apple Pay payment section */
+#apple-pay-payment h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Styles for the form within the Apple Pay payment section */
+#apple-pay-payment form {
+  margin-top: 20px;
+}
+
+/* Styles for the Apple Pay button */
+.apple-pay-button {
+  background-color: #4285f4;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover styles for the submit button within the Apple Pay payment section */
+#apple-pay-payment button[type="submit"]:hover {
+  background-color: #0066c0;
+}
+
+/* Google Wallet payment option styles */
+#google-wallet-payment {
+  display: none;
+  background-color: #f8f8f8;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+/* h2 styling within Google Wallet section */
+#google-wallet-payment h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Form styling within Google Wallet section */
+#google-wallet-payment form {
+  margin-top: 20px;
+}
+
+/* Submit button styling within Google Wallet section */
+#google-wallet-payment button[type="submit"] {
+  background-color: #4285f4;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover state of submit button within Google Wallet section */
+#google-wallet-payment button[type="submit"]:hover {
+  background-color: #0066c0;
+}
+
+/* Cryptocurrency payment option styles */
+#cryptocurrency-payment {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* h2 styling within Cryptocurrency section */
+#cryptocurrency-payment h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Styles for the address paragraph within the cryptocurrency section */
+.crypto-address {
+  margin-bottom: 20px;
+}
+
+/* Styles for the address paragraph within the cryptocurrency section */
+.crypto-address p {
+  margin-bottom: 5px;
+}
+
+/* Label styling within the Cryptocurrency form */
+#crypto-payment-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Text input styling within the Cryptocurrency form */
+#crypto-payment-form input[type="text"] {
+  padding: 4px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Submit button styling within the Cryptocurrency form */
+#crypto-payment-form button[type="submit"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Hover state of the submit button within the Cryptocurrency form */
+#crypto-payment-form button[type="submit"]:hover {
+  background-color: #0069d9;
+}
+
+/* Styles for error messages */
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+/* Bank Transfer payment option styles */
+#bank-transfer-payment {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* h2 styling within Bank Transfer section */
+#bank-transfer-payment h2 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Table styling within Bank Transfer section */
+#bank-transfer-payment table {
+  margin: 10px 0;
+}
+
+/* Table header styling within Bank Transfer section */
+#bank-transfer-payment table th {
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* Table data styling within Bank Transfer section */
+#bank-transfer-payment table td {
+  padding-left: 10px;
+}
+
+/* Last paragraph styling within Bank Transfer section */
+#bank-transfer-payment p:last-child {
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Define the styles for the navigation bar */
+nav {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Define the footer styles */
+footer {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  padding: 20px;
+  text-align: center;
+}
+
+/* Define the style for links in the footer */
+footer a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+/* Define the responsive styles for the footer */
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Define the style for links in the footer on small screens */
+  footer a {
+    margin: 10px 0;
+  }
+}
+
+/* Define the general styles for links */
+a {
+  text-decoration: none;
+  color: Black;
+}
+
+/* Define the styles for success and error messages from form validation */
+#success-message, #error-message {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
+  max-width: 500px;
+  padding: 20px;
+}
+
+/* Define the styles for error messages */
+.error {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+
+/* Define the styles for inputs with errors */
+.error-input {
+  border: 2px solid red;
+}
+
+/* Define the styles for success messages */
+.success {
+  color: green;
+}
+
+/* Define the responsive styles for small screens */
+@media only screen and (max-width: 600px) {
+  body,
+  label,
+  .error {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 3em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  h5 {
+    font-size: 1.5em;
+  }
+  .form-group {
+    width: 100%;
+  }
+}

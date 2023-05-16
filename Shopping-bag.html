@@ -1,818 +1,353 @@
 <!-- This is an HTML page for Payment and checkout on the TGS website. -->
 <!DOCTYPE html>
 <html lang="en-US">
-
-<head>
-  <!-- Page metadata -->
-  <meta charset="UTF-8">
-  <meta name="description" content="Register for TGS">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout | TGS</title>
-</head>
-<style>
-  /* Reset all margins, paddings, and box-sizing */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  /* General styles */
-  body {
-    font-family: 'Noto', sans-serif;
-  }
-
-  /* Heading Styles */
-  h1,
-  h2,
-  h4,
-  h5 {
-    text-align: center;
-    color: goldenrod;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  h2,
-  h4 {
-    font-size: 1.5rem;
-  }
-
-  h5 {
-    font-size: 1rem;
-    text-align: right;
-  }
-
-  /* Form styles */
-  form {
-    margin: auto;
-    max-width: 400px;
-    padding: 20px;
-  }
-
-  /* Style table headers */
-  table th {
-    text-align: right;
-    padding-right: 10px;
-  }
-
-  input[type="text"],
-  input[type="password"],
-  input[type="email"],
-  input[type="tel"] {
-    width: 100%;
-    padding: 4px 12px;
-    margin: 1px 0;
-    border-radius: 1px;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 1px solid GoldenRod;
-    margin-bottom: 12px;
-  }
-
-  /* Button styles */
-  button[type="submit"],
-  button[type="button"] {
-    background-color: GoldenRod;
-    color: white;
-    padding: 12px 18px;
-    margin: 6px 0;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    margin-right: 8px;
-  }
-
-  button[type="submit"]:hover,
-  button[type="button"]:hover {
-    background-color: #e8bd01;
-  }
-
-  /* Payment method section */
-  section {
-    margin-bottom: 1.5rem;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  select {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-
-  .error {
-    color: red;
-  }
-
-  /* Payment info section */
-  #payment-info {
-    margin-top: 1.5rem;
-  }
-
-  .payment-label {
-    font-weight: bold;
-  }
-
-  .payment-info {
-    margin-bottom: 1rem;
-  }
-
-  .payment-info input[type="text"],
-  .payment-info input[type="email"],
-  .payment-info input[type="tel"],
-  .payment-info select {
-    display: block;
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 0.5rem;
-  }
-
-  .payment-info input[type="checkbox"] {
-    margin-right: 0.5rem;
-  }
-
-  .payment-info label {
-    display: inline-block;
-    margin-right: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .payment-info label:last-child {
-    margin-right: 0;
-  }
-
-  .payment-info button {
-    padding: 0.5rem;
-    font-size: 1rem;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  .payment-info button:hover {
-    background-color: #0069d9;
-  }
-
-  #credit-card-payment form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(4, auto);
-    grid-column-gap: 1em;
-    grid-row-gap: 0.5em;
-  }
-
-  #credit-card-payment label {
-    font-weight: bold;
-  }
-
-  #credit-card-payment input,
-  #credit-card-payment select {
-    padding: 0.5em;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    width: 100%;
-  }
-
-  #credit-card-payment input[type="submit"] {
-    padding: 0.5em 1em;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  #credit-card-payment input[type="submit"]:hover {
-    background-color: #3e8e41;
-  }
-
-  #paypal-payment {
-    display: none;
-    background-color: #f8f8f8;
-    padding: 20px;
-    border: 1px solid #ccc;
-  }
-
-  #paypal-payment h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  #paypal-payment form {
-    margin-top: 20px;
-  }
-
-  #paypal-payment button[type="submit"] {
-    background-color: #0070ba;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  #paypal-payment button[type="submit"]:hover {
-    background-color: #005ea1;
-  }
-
-
-  #venmo-payment {
-    background-color: #f5f5f5;
-    padding: 20px;
-    border-radius: 5px;
-  }
-
-  #venmo-payment h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  #venmo-payment p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-  #venmo-payment ol {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-
-  #venmo-payment li {
-    margin-bottom: 10px;
-  }
-
-  #venmo-payment img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Styling for the Cash App payment section */
-  #cash-app-payment {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-
-  #cash-app-payment h2 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-
-  #cash-app-payment ol {
-    margin-left: 20px;
-    margin-bottom: 20px;
-  }
-
-  #cash-app-payment ol li {
-    margin-bottom: 10px;
-  }
-
-  #cash-app-payment p:last-child {
-    margin-top: 20px;
-    font-style: italic;
-  }
-
-  /* Apple Pay button style */
-
-  #apple-pay-payment {
-    display: none;
-    background-color: #f8f8f8;
-    padding: 20px;
-    border: 1px solid #ccc;
-  }
-
-  #apple-pay-payment h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  #apple-pay-payment form {
-    margin-top: 20px;
-  }
-
-  .apple-pay-button {
-    background-color: #4285f4;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  #apple-pay-payment button[type="submit"]:hover {
-    background-color: #0066c0;
-  }
-
-  /* Google Wallet payment option */
-  #google-wallet-payment {
-    display: none;
-    background-color: #f8f8f8;
-    padding: 20px;
-    border: 1px solid #ccc;
-  }
-
-  #google-wallet-payment h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  #google-wallet-payment form {
-    margin-top: 20px;
-  }
-
-  #google-wallet-payment button[type="submit"] {
-    background-color: #4285f4;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  #google-wallet-payment button[type="submit"]:hover {
-    background-color: #0066c0;
-  }
-
-  /* Cryptocurrency payment option */
-  #cryptocurrency-payment {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-
-  #cryptocurrency-payment h2 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-
-  .crypto-address {
-    margin-bottom: 20px;
-  }
-
-  .crypto-address p {
-    margin-bottom: 5px;
-  }
-
-  #crypto-payment-form label {
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  #crypto-payment-form input[type="text"] {
-    padding: 4px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-  }
-
-  #crypto-payment-form button[type="submit"] {
-    padding: 0.5rem;
-    font-size: 1rem;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  #crypto-payment-form button[type="submit"]:hover {
-    background-color: #0069d9;
-  }
-
-  .error {
-    color: red;
-    font-size: 0.8rem;
-    margin-top: 5px;
-  }
-
-  /* Bank Transfer payment option */
-  #bank-transfer-payment {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-
-  #bank-transfer-payment h2 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-
-  #bank-transfer-payment table {
-    margin: 10px 0;
-  }
-
-  #bank-transfer-payment table th {
-    text-align: right;
-    padding-right: 10px;
-  }
-
-  #bank-transfer-payment table td {
-    padding-left: 10px;
-  }
-
-  #bank-transfer-payment p:last-child {
-    margin-top: 20px;
-    font-style: italic;
-  }
-
-
-
-  /* Footer Styles */
-  footer {
-    background-color: AntiqueWhite;
-    color: Goldenrod;
-    padding: 20px;
-    text-align: center;
-  }
-
-  a {
-    text-decoration: none;
-    color: Black;
-  }
-
-  @media (max-width: 768px) {
-    footer {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    footer a {
-      margin: 10px 0;
-    }
-  }
-
-  /* Error Message Style */
-  .error {
-    color: red;
-    font-size: 0.8rem;
-    margin-top: 5px;
-  }
-</style>
-
-<body>
-  <!-- Page header -->
-  <header>
-    <h1>TGS</h1>
-  </header>
-  <hr>
-  <!-- Main content -->
-  <main>
-    <section>
-      <form>
-        <!-- Address selection -->
-        <section>
-          <h2>Delivery Address</h2>
-          <label for="address">Select an existing delivery address or enter a new one:</label>
-          <select id="address">
-            <option value="">Choose an option</option>
-            <option value="new">Enter New Address</option>
-          </select>
-          <p class="error" id="address-error"></p>
-        </section>
-
-        <!-- New Address form -->
-        <section id="new-address" style="display:none;">
-          <h2>New Delivery Address</h2>
-          <form>
-            <label for="street">Street:</label>
-            <input type="text" id="street" name="street" placeholder="Enter Street" required>
-            <br>
-            <label for="city">City:</label>
-            <input type="text" id="city" name="city" placeholder="Enter City" required>
-            <br>
-            <label for="state">State:</label>
-            <input type="text" id="state" name="state" placeholder="Enter State" required>
-            <br>
-            <label for="zip">Zip Code:</label>
-            <input type="text" id="zip" name="zip" placeholder="Enter Zip Code" required>
-            <br>
-            <button type="submit">Save Address</button>
-          </form>
-          <p class="error" id="new-address-error"></p>
-        </section>
-
-        <!-- Payment type selection -->
-        <section>
-          <h2>Payment Method</h2>
-          <label for="payment-type">Select a payment method:</label>
-          <select id="payment-type">
-            <option value="">Choose an option</option>
-            <option value="credit-card">Credit Card</option>
-            <option value="paypal">PayPal</option>
-            <option value="venmo">Venmo</option>
-            <option value="cash-app-payment">Cash App</option>
-            <option value="apple-pay-payment">Apple Pay</option>
-            <option value="google-wallet-payment">Google Wallet</option>
-            <option value="cryptocurrency-payment">Cryptocurrency</option>
-            <option value="bank-transfer-payment">Bank Transfer</option>
-          </select>
-          <p class="error" id="payment-type-error"></p>
-          <div id="payment-info"></div>
-        </section>
-
-        <!-- Credit Card payment section -->
-        <section id="credit-card-payment" style="display:none;">
-          <h2>Credit Card Payment</h2>
-          <form>
-            <label> Card Number:
-              <input type="text" id="card-number" name="card-number" placeholder="Enter Card Number" required />
-            </label>
-            <br />
-            <label> Name on Card:
-              <input type="text" id="card-name" name="card-name" placeholder="Enter Name on Card" required />
-            </label>
-            <br />
-            <label> Expiration Date:
-              <select name="card-expiry-month" id="card-expiry-month" required>
-                <option value="">Month</option>
-                <option value="01">January</option>
-                <option value="02">February</option>
-                <option value="03">March</option>
-                <option value="04">April</option>
-                <option value="05">May</option>
-                <option value="06">June</option>
-                <option value="07">July</option>
-                <option value="08">August</option>
-                <option value="09">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
-              </select>
-              /
-              <select name="card-expiry-year" id="card-expiry-year" required>
-                <option value="">Year</option>
-                <script>
-                  var year = new Date().getFullYear();
-                  for (var i = 0; i < 10; i++) {
-                    document.write(`<option value="${year}">${year}</option>`);
-                    year++;
-                  }
-                </script>
-              </select>
-            </label>
-
-            <label> Card CVV:
-              <input type="text" id="card-cvv" name="card-cvv" placeholder="Enter CVV" required />
-            </label>
-            <br>
-
-            <label for="card-type">Card Type:</label>
-            <select name="card-type" id="card-type" required>
-              <option value="">Select Card Type</option>
-              <option value="visa">Visa</option>
-              <option value="mastercard">Mastercard</option>
-              <option value="amex">American Express</option>
-              <option value="discover">Discover</option>
-            </select>
-          </form>
-          <button type="submit"><a href="Summary.html">Checkout</a></button>
-        </section>
-
-        <!-- PayPal payment section -->
-        <section id="paypal-payment" style="display:none;">
-          <h2>PayPal Payment</h2>
-          <form>
-            <p>Please click the button below to proceed to PayPal:</p>
-            <button type="submit"><a href="Summary.html">Checkout</a></button>
-          </form>
-        </section>
-
-        <!-- Venmo payment section -->
-        <section id="venmo-payment" style="display:none;">
-          <h2>Venmo Payment</h2>
-          <p>Please follow the steps below to complete your Venmo payment:</p>
-          <ol>
-            <li>Open the Venmo app on your phone</li>
-            <li>Click the "Pay or Request" button</li>
-            <li>Select "Scan Code" and scan the code below</li>
-            <li>Enter the amount due and click "Pay"</li>
-          </ol>
-          <img src="pictures/venmo-qr-code.png" alt="Venmo QR code for payment" />
-          <button type="submit"><a href="Summary.html">Checkout</a></button>
-        </section>
-
-        <!-- Cash App payment section -->
-        <section id="cash-app-payment" style="display:none;">
-          <h2>Cash App Payment</h2>
-          <p>Please follow the steps below to complete your Cash App payment:</p>
-          <ol>
-            <li>Open the Cash App on your phone</li>
-            <li>Click the $Cashtag symbol at the bottom of the screen</li>
-            <li>Enter the amount due and click "Pay"</li>
-            <li>Enter our $Cashtag: <strong>@yourcompanyname</strong></li>
-            <li>Add a note with your order number</li>
-            <li>Click "Pay"</li>
-          </ol>
-          <p>After completing the payment, please click the button below to complete your order:</p>
-          <form>
-            <button type="submit"><a href="Summary.html">Checkout</a></button>
-          </form>
-        </section>
-
-        <!-- Apple Pay payment option -->
-        <section id="apple-pay-payment" style="display:none;">
-          <h2>Apple Pay Payment</h2>
-          <p>Please click the button below to proceed to Apple Pay:</p>
-          <button type="submit"><a href="Summary.html">Checkout</a></button>
-        </section>
-
-        <!-- Apple Google payment option -->
-        <section id="google-wallet-payment" style="display:none;">
-          <h2>Google Pay Payment</h2>
-          <p>Please click the button below to proceed to Google Pay:</p>
-          <button type="submit"><a href="Summary.html">Checkout</a></button>
-        </section>
-
-        <!-- Cryptocurrency payment option -->
-        <section id="cryptocurrency-payment" style="display:none;">
-          <h2>Cryptocurrency Payment</h2>
-          <p>Please send your payment to the following cryptocurrency address:</p>
-          <div class="crypto-address">
-            <p><strong>Bitcoin:</strong> 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</p>
-            <p><strong>Ethereum:</strong> 0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8</p>
-            <p><strong>Litecoin:</strong> LdRiMNxNzbuByEuYwZwGjFD1Y4aL88oHju</p>
-          </div>
-          <p>After sending your payment, please enter your transaction ID and click "Submit" to complete your order.</p>
-          <form id="crypto-payment-form">
-            <label for="transaction-id">Transaction ID:</label>
-            <input type="text" id="transaction-id" name="transaction-id" placeholder="Enter transaction ID" required>
-          </form>
-          <button type="submit"><a href="Summary.html">Checkout</a></button>
-        </section>
-
-        <!-- Bank Transfer payment option -->
-        <section id="bank-transfer-payment" style="display:none;">
-          <h2>Bank Transfer Payment</h2>
-          <p>Please use the following information to make a bank transfer:</p>
-          <table>
-            <tr>
-              <th>Bank:</th>
-              <td>Bank of America</td>
-            </tr>
-            <tr>
-              <th>Account Name:</th>
-              <td>Your Name</td>
-            </tr>
-            <tr>
-              <th>Account Number:</th>
-              <td>1234567890</td>
-            </tr>
-            <tr>
-              <th>Routing Number:</th>
-              <td>111000025</td>
-            </tr>
-            <tr>
-              <th>Reference:</th>
-              <td>Order Number XXXX</td>
-            </tr>
-          </table>
-          <p>After completing the transfer, please return to this page and click "Submit" to complete your order.</p>
-          <button type="submit"><a href="Summary.html">Checkout</a></button>
-        </section>
-      </form>
-    </section>
-  </main>
-
-  <!-- Page footer -->
-  <footer>
-    <a href="index.html">Home</a>
-    <a href="Login.html">Login</a>
-    <a href="Search.html">Search</a>
-    <a href="Campaign.html">Campaign</a>
-    <a href="Menswear.html">Menswear</a>
-    <a href="Womenswear.html">Womenswear</a>
-    <a href="New-Arrivals.html">New Arrivals</a>
-    <a href="Sale.html">Sale</a>
-    <a href="Aboutus.html">About Us</a>
-    <a href="Faq.html">FAQ</a>
-    <a href="Contact.html">Contact Us</a>
-    <a href="Systempreference.html">System Preferences</a>
-    <font align="center">
-      <br>
-      <p>© TGS 2023</p>
-  </footer>
-
-  <script>
-    const paymentTypeSelect = document.getElementById("payment-type");
-    const creditCardPayment = document.getElementById("credit-card-payment");
-    const paypalPayment = document.getElementById("paypal-payment");
-    const venmoPayment = document.getElementById("venmo-payment");
-    const cashAppPayment = document.getElementById("cash-app-payment");
-    const appleAppPayment = document.getElementById("apple-pay-payment");
-    const googleAppPayment = document.getElementById("google-wallet-payment");
-    const cryptocurrencypayment = document.getElementById("cryptocurrency-payment");
-    const banktransferpayment = document.getElementById("bank-transfer-payment");
-    const addressSelect = document.getElementById("address");
-    const newAddressDiv = document.getElementById("new-address");
-
-    paymentTypeSelect.addEventListener("change", function () {
-      if (paymentTypeSelect.value === "credit-card") {
-        creditCardPayment.style.display = "block";
-        paypalPayment.style.display = "none";
-        venmoPayment.style.display = "none";
-        cashAppPayment.style.display = "none";
-        appleAppPayment.style.display = "none";
-        googleAppPayment.style.display = "none";
-        cryptocurrencypayment.style.display = "none";
-        banktransferpayment.style.display = "none";
-      } else if (paymentTypeSelect.value === "paypal") {
-        creditCardPayment.style.display = "none";
-        paypalPayment.style.display = "block";
-        venmoPayment.style.display = "none";
-        cashAppPayment.style.display = "none";
-        appleAppPayment.style.display = "none";
-        googleAppPayment.style.display = "none";
-        cryptocurrencypayment.style.display = "none";
-        banktransferpayment.style.display = "none";
-      } else if (paymentTypeSelect.value === "venmo") {
-        creditCardPayment.style.display = "none";
-        paypalPayment.style.display = "none";
-        venmoPayment.style.display = "block";
-        cashAppPayment.style.display = "none";
-        appleAppPayment.style.display = "none";
-        googleAppPayment.style.display = "none";
-        cryptocurrencypayment.style.display = "none";
-        banktransferpayment.style.display = "none";
-      } else if (paymentTypeSelect.value === "cash-app-payment") {
-        creditCardPayment.style.display = "none";
-        paypalPayment.style.display = "none";
-        venmoPayment.style.display = "none";
-        cashAppPayment.style.display = "block";
-        appleAppPayment.style.display = "none";
-        googleAppPayment.style.display = "none";
-        cryptocurrencypayment.style.display = "none";
-        banktransferpayment.style.display = "none";
-      } else if (paymentTypeSelect.value === "apple-pay-payment") {
-        creditCardPayment.style.display = "none";
-        paypalPayment.style.display = "none";
-        venmoPayment.style.display = "none";
-        cashAppPayment.style.display = "none";
-        appleAppPayment.style.display = "block";
-        googleAppPayment.style.display = "none";
-        cryptocurrencypayment.style.display = "none";
-        banktransferpayment.style.display = "none";
-      } else if (paymentTypeSelect.value === "google-wallet-payment") {
-        creditCardPayment.style.display = "none";
-        paypalPayment.style.display = "none";
-        venmoPayment.style.display = "none";
-        cashAppPayment.style.display = "none";
-        appleAppPayment.style.display = "none";
-        googleAppPayment.style.display = "block";
-        cryptocurrencypayment.style.display = "none";
-        banktransferpayment.style.display = "none";
-      } else if (paymentTypeSelect.value === "cryptocurrency-payment") {
-        creditCardPayment.style.display = "none";
-        paypalPayment.style.display = "none";
-        venmoPayment.style.display = "none";
-        cashAppPayment.style.display = "none";
-        appleAppPayment.style.display = "none";
-        googleAppPayment.style.display = "none";
-        cryptocurrencypayment.style.display = "block";
-        banktransferpayment.style.display = "none";
-      } else if (paymentTypeSelect.value === "bank-transfer-payment") {
-        creditCardPayment.style.display = "none";
-        paypalPayment.style.display = "none";
-        venmoPayment.style.display = "none";
-        cashAppPayment.style.display = "none";
-        appleAppPayment.style.display = "none";
-        googleAppPayment.style.display = "none";
-        cryptocurrencypayment.style.display = "none";
-        banktransferpayment.style.display = "block";
-      }
-    });
-
-    // Show/hide new address fields when "Enter New Address" option is selected
-    addressSelect.addEventListener("change", function () {
-      if (addressSelect.value == "new") {
-        newAddressDiv.style.display = "block";
-      } else {
-        newAddressDiv.style.display = "none";
-      }
-    });
-  </script>
-</body>
-
+   <head>
+     <!-- Page metadata -->
+     <meta charset="UTF-8">
+     <meta name="description" content="Register for TGS">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" type="text/css" href="Styles_RLR.css">
+     <title>Checkout | TGS</title>
+   </head>
+   <body>
+      <!-- Page header -->
+      <header> <h1>TGS</h1> </header>
+      <hr>
+      <!-- Main content -->
+      <main>
+         <section>
+            <form>
+               <!-- Address selection -->
+               <section>
+                  <h2>Delivery Address</h2>
+                  <label for="address">Select an existing delivery address or enter a new one:</label>
+                  <select id="address">
+                     <option value="">Choose an option</option>
+                     <option value="new">Enter New Address</option>
+                  </select>
+                  <p class="error" id="address-error"></p>
+               </section>
+
+               <!-- New Address form -->
+               <section id="new-address" style="display:none;">
+                  <h2>New Delivery Address</h2>
+                  <form>
+                     <label for="street">Street:</label>
+                     <input type="text" id="street" name="street" placeholder="Enter Street" required>
+                     <br>
+                     <label for="city">City:</label>
+                     <input type="text" id="city" name="city" placeholder="Enter City" required>
+                     <br>
+                     <label for="state">State:</label>
+                     <input type="text" id="state" name="state" placeholder="Enter State" required>
+                     <br>
+                     <label for="zip">Zip Code:</label>
+                     <input type="text" id="zip" name="zip" placeholder="Enter Zip Code" required>
+                     <br>
+                     <button type="submit" >Save Address</button>
+                  </form>
+                  <p class="error" id="new-address-error"></p>
+               </section>
+
+               <!-- Payment type selection -->
+               <section>
+                  <h2>Payment Method</h2>
+                  <label for="payment-type">Select a payment method:</label>
+                  <select id="payment-type">
+                     <option value="">Choose an option</option>
+                     <option value="credit-card">Credit Card</option>
+                     <option value="paypal">PayPal</option>
+                     <option value="venmo">Venmo</option>
+                     <option value="cash-app-payment">Cash App</option>
+                     <option value="apple-pay-payment">Apple Pay</option>
+                     <option value="google-wallet-payment">Google Wallet</option>
+                     <option value="cryptocurrency-payment">Cryptocurrency</option>
+                     <option value="bank-transfer-payment">Bank Transfer</option>
+                  </select>
+                  <p class="error" id="payment-type-error"></p>
+                  <div id="payment-info"></div>
+               </section>
+
+               <!-- Credit Card payment section -->
+               <section id="credit-card-payment" style="display:none;">
+                  <h2>Credit Card Payment</h2>
+                  <form>
+                     <label> Card Number:
+                       <input type="text" id="card-number" name="card-number" placeholder="Enter Card Number" required />
+                     </label>
+                     <br />
+                     <label> Name on Card:
+                       <input type="text" id="card-name" name="card-name" placeholder="Enter Name on Card" required />
+                     </label>
+                     <br />
+                     <label> Expiration Date:
+                        <select name="card-expiry-month" id="card-expiry-month" required>
+                           <option value="">Month</option>
+                           <option value="01">January</option>
+                           <option value="02">February</option>
+                           <option value="03">March</option>
+                           <option value="04">April</option>
+                           <option value="05">May</option>
+                           <option value="06">June</option>
+                           <option value="07">July</option>
+                           <option value="08">August</option>
+                           <option value="09">September</option>
+                           <option value="10">October</option>
+                           <option value="11">November</option>
+                           <option value="12">December</option>
+                        </select>
+                        /
+                        <select name="card-expiry-year" id="card-expiry-year" required>
+                           <option value="">Year</option>
+                           <script>
+                              var year = new Date().getFullYear();
+                              for (var i = 0; i < 10; i++) {
+                              document.write(`<option value="${year}">${year}</option>`);
+                              year++;
+                              }
+                           </script>
+                        </select>
+                     </label>
+
+                     <label> Card CVV:
+                     <input type="text" id="card-cvv" name="card-cvv" placeholder="Enter CVV" required />
+                     </label>
+                     <br>
+
+                     <label for="card-type">Card Type:</label>
+                     <select name="card-type" id="card-type" required>
+                        <option value="">Select Card Type</option>
+                        <option value="visa">Visa</option>
+                        <option value="mastercard">Mastercard</option>
+                        <option value="amex">American Express</option>
+                        <option value="discover">Discover</option>
+                     </select>
+                  </form>
+                  <button type="submit"><a href="Summary.html">Checkout</a></button>
+               </section>
+
+               <!-- PayPal payment section -->
+               <section id="paypal-payment" style="display:none;">
+                  <h2>PayPal Payment</h2>
+                  <form>
+                     <p>Please click the button below to proceed to PayPal:</p>
+                     <button type="submit"><a href="Summary.html">Checkout</a></button>
+                  </form>
+               </section>
+   
+               <!-- Venmo payment section -->
+               <section id="venmo-payment" style="display:none;">
+                  <h2>Venmo Payment</h2>
+                  <p>Please follow the steps below to complete your Venmo payment:</p>
+                  <ol>
+                     <li>Open the Venmo app on your phone</li>
+                     <li>Click the "Pay or Request" button</li>
+                     <li>Select "Scan Code" and scan the code below</li>
+                     <li>Enter the amount due and click "Pay"</li>
+                  </ol>
+                  <img src="pictures/venmo-qr-code.png" alt="Venmo QR code for payment" />
+                  <button type="submit"><a href="Summary.html">Checkout</a></button>
+               </section>
+
+               <!-- Cash App payment section -->
+               <section id="cash-app-payment" style="display:none;">
+                  <h2>Cash App Payment</h2>
+                  <p>Please follow the steps below to complete your Cash App payment:</p>
+                  <ol>
+                     <li>Open the Cash App on your phone</li>
+                     <li>Click the $Cashtag symbol at the bottom of the screen</li>
+                     <li>Enter the amount due and click "Pay"</li>
+                     <li>Enter our $Cashtag: <strong>@yourcompanyname</strong></li>
+                     <li>Add a note with your order number</li>
+                     <li>Click "Pay"</li>
+                  </ol>
+                  <p>After completing the payment, please click the button below to complete your order:</p>
+                  <form>
+                     <button type="submit"><a href="Summary.html">Checkout</a></button>
+                  </form>
+               </section>
+
+               <!-- Apple Pay payment option -->
+               <section id="apple-pay-payment" style="display:none;">
+                  <h2>Apple Pay Payment</h2>
+                  <p>Please click the button below to proceed to Apple Pay:</p>
+                  <button type="submit"><a href="Summary.html">Checkout</a></button>
+               </section>
+
+               <!-- Apple Google payment option -->
+               <section id="google-wallet-payment" style="display:none;">
+                  <h2>Google Pay Payment</h2>
+                  <p>Please click the button below to proceed to Google Pay:</p>
+                  <button type="submit"><a href="Summary.html">Checkout</a></button>
+               </section>
+
+               <!-- Cryptocurrency payment option -->
+               <section id="cryptocurrency-payment" style="display:none;">
+                  <h2>Cryptocurrency Payment</h2>
+                  <p>Please send your payment to the following cryptocurrency address:</p>
+                  <div class="crypto-address">
+                     <p><strong>Bitcoin:</strong> 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</p>
+                     <p><strong>Ethereum:</strong> 0x7cB57B5A97eAbe94205C07890BE4c1aD31E486A8</p>
+                     <p><strong>Litecoin:</strong> LdRiMNxNzbuByEuYwZwGjFD1Y4aL88oHju</p>
+                  </div>
+                  <p>After sending your payment, please enter your transaction ID and click "Submit" to complete your order.</p>
+                  <form id="crypto-payment-form">
+                     <label for="transaction-id">Transaction ID:</label>
+                     <input type="text" id="transaction-id" name="transaction-id" placeholder="Enter transaction ID" required>
+                  </form>
+                  <button type="submit"><a href="Summary.html">Checkout</a></button>
+               </section>
+
+               <!-- Bank Transfer payment option -->
+               <section id="bank-transfer-payment" style="display:none;">
+                  <h2>Bank Transfer Payment</h2>
+                  <p>Please use the following information to make a bank transfer:</p>
+                  <table>
+                     <tr>
+                        <th>Bank:</th>
+                        <td>Bank of America</td>
+                     </tr>
+                     <tr>
+                        <th>Account Name:</th>
+                        <td>Your Name</td>
+                     </tr>
+                     <tr>
+                        <th>Account Number:</th>
+                        <td>1234567890</td>
+                     </tr>
+                     <tr>
+                        <th>Routing Number:</th>
+                        <td>111000025</td>
+                     </tr>
+                     <tr>
+                        <th>Reference:</th>
+                        <td>Order Number XXXX</td>
+                     </tr>
+                  </table>
+                  <p>After completing the transfer, please return to this page and click "Submit" to complete your order.</p>
+                  <button type="submit"><a href="Summary.html">Checkout</a></button>
+               </section>
+            </form>
+         </section>
+      </main>
+   
+      <!-- Page footer -->
+      <footer>
+         <a href="index.html">Home</a>
+         <a href="Login.html">Login</a>
+         <a href="Search.html">Search</a>
+         <a href="Campaign.html">Campaign</a>
+         <a href="Menswear.html">Menswear</a>
+         <a href="Womenswear.html">Womenswear</a>
+         <a href="New-Arrivals.html">New Arrivals</a>
+         <a href="Sale.html">Sale</a>
+         <a href="Aboutus.html">About Us</a>
+         <a href="Faq.html">FAQ</a>
+         <a href="Contact.html">Contact Us</a>
+         <a href="Systempreference.html">System Preferences</a>
+         <font align="center">
+           <br>
+           <p>© TGS 2023</p>
+       </footer>
+
+      <script>
+
+         const paymentTypeSelect = document.getElementById("payment-type");
+         const creditCardPayment = document.getElementById("credit-card-payment");
+         const paypalPayment = document.getElementById("paypal-payment");
+         const venmoPayment = document.getElementById("venmo-payment");
+         const cashAppPayment = document.getElementById("cash-app-payment");
+         const appleAppPayment = document.getElementById("apple-pay-payment");
+         const googleAppPayment = document.getElementById("google-wallet-payment");
+         const cryptocurrencypayment = document.getElementById("cryptocurrency-payment");
+         const banktransferpayment = document.getElementById("bank-transfer-payment");
+         const addressSelect = document.getElementById("address");
+         const newAddressDiv = document.getElementById("new-address");
+
+         paymentTypeSelect.addEventListener("change", function() {
+         if (paymentTypeSelect.value === "credit-card") {
+         creditCardPayment.style.display = "block";
+         paypalPayment.style.display = "none";
+         venmoPayment.style.display = "none";
+         cashAppPayment.style.display = "none";
+         appleAppPayment.style.display = "none";
+         googleAppPayment.style.display = "none";
+         cryptocurrencypayment.style.display = "none";
+         banktransferpayment.style.display = "none";
+         } else if (paymentTypeSelect.value === "paypal") {
+         creditCardPayment.style.display = "none";
+         paypalPayment.style.display = "block";
+         venmoPayment.style.display = "none";
+         cashAppPayment.style.display = "none";
+         appleAppPayment.style.display = "none";
+         googleAppPayment.style.display = "none";
+         cryptocurrencypayment.style.display = "none";
+         banktransferpayment.style.display = "none";
+         } else if (paymentTypeSelect.value === "venmo") {
+         creditCardPayment.style.display = "none";
+         paypalPayment.style.display = "none";
+         venmoPayment.style.display = "block";
+         cashAppPayment.style.display = "none";
+         appleAppPayment.style.display = "none";
+         googleAppPayment.style.display = "none";
+         cryptocurrencypayment.style.display = "none";
+         banktransferpayment.style.display = "none";
+         } else if (paymentTypeSelect.value === "cash-app-payment") {
+         creditCardPayment.style.display = "none";
+         paypalPayment.style.display = "none";
+         venmoPayment.style.display = "none";
+         cashAppPayment.style.display = "block";
+         appleAppPayment.style.display = "none";
+         googleAppPayment.style.display = "none";
+         cryptocurrencypayment.style.display = "none";
+         banktransferpayment.style.display = "none";
+         } else if (paymentTypeSelect.value === "apple-pay-payment") {
+         creditCardPayment.style.display = "none";
+         paypalPayment.style.display = "none";
+         venmoPayment.style.display = "none";
+         cashAppPayment.style.display = "none";
+         appleAppPayment.style.display = "block";
+         googleAppPayment.style.display = "none";
+         cryptocurrencypayment.style.display = "none";
+         banktransferpayment.style.display = "none";
+         } else if (paymentTypeSelect.value === "google-wallet-payment") {
+         creditCardPayment.style.display = "none";
+         paypalPayment.style.display = "none";
+         venmoPayment.style.display = "none";
+         cashAppPayment.style.display = "none";
+         appleAppPayment.style.display = "none";
+         googleAppPayment.style.display = "block";
+         cryptocurrencypayment.style.display = "none";
+         banktransferpayment.style.display = "none";
+         } else if (paymentTypeSelect.value === "cryptocurrency-payment") {
+         creditCardPayment.style.display = "none";
+         paypalPayment.style.display = "none";
+         venmoPayment.style.display = "none";
+         cashAppPayment.style.display = "none";
+         appleAppPayment.style.display = "none";
+         googleAppPayment.style.display = "none";
+         cryptocurrencypayment.style.display = "block";
+         banktransferpayment.style.display = "none";
+         } else if (paymentTypeSelect.value === "bank-transfer-payment") {
+         creditCardPayment.style.display = "none";
+         paypalPayment.style.display = "none";
+         venmoPayment.style.display = "none";
+         cashAppPayment.style.display = "none";
+         appleAppPayment.style.display = "none";
+         googleAppPayment.style.display = "none";
+         cryptocurrencypayment.style.display = "none";
+         banktransferpayment.style.display = "block";
+         }
+         });
+
+         // Show/hide new address fields when "Enter New Address" option is selected
+         addressSelect.addEventListener("change", function() {
+            if (addressSelect.value == "new") {
+               newAddressDiv.style.display = "block";
+            } else {
+               newAddressDiv.style.display = "none";
+            }
+         });
+      </script>
+   </body>
 </html>
